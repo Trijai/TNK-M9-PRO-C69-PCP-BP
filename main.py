@@ -29,13 +29,19 @@ while True:
             # Apply various filters to the camera fedd based on the fingers
             if fingers1[0] == 0:
                 currentFingerUp = "Thumb"
-
+                cameraFeedImg = cv2.cvtColor(cameraFeedImg, cv2.COLOR_BGR2GRAY)
+            
             elif fingers1[1] == 1:
                 currentFingerUp = "Index Finger"
-
+                cameraFeedImg = cv2.xphoto.oilPainting(cameraFeedImg, size=7, dynRatio=1)
+                
             elif fingers1[2] == 1:
                 currentFingerUp = "Middle Finger"
-
+                grayscaleImage = cv2.cvtColor(cameraFeedImg, cv2.COLOR_BGR2GRAY)
+                invertedImg = 255 - grayscaleImage
+                blurredImg = cv2.GaussianBlur(invertedImg, (21, 21), 0)
+                cameraFeedImg = cv2.divide(grayscaleImage, 255 - blurredImg, scale=256)
+                
             elif fingers1[3] == 1:
                 currentFingerUp = "Ring Finger"
             elif fingers1[4] == 1:
@@ -56,13 +62,19 @@ while True:
             # Apply various filters to the camera fedd based on the fingers
             if fingers2[0] == 0:
                 currentFingerUp = "Thumb"
-
+                cameraFeedImg = cv2.cvtColor(cameraFeedImg, cv2.COLOR_BGR2GRAY)
+                
             elif fingers2[1] == 1:
                 currentFingerUp = "Index Finger"
-
+                cameraFeedImg = cv2.xphoto.oilPainting(cameraFeedImg, size=7, dynRatio=1)
+                
             elif fingers2[2] == 1:
                 currentFingerUp = "Middle Finger"
-
+                grayscaleImage = cv2.cvtColor(cameraFeedImg, cv2.COLOR_BGR2GRAY)
+                invertedImg = 255 - grayscaleImage
+                blurredImg = cv2.GaussianBlur(invertedImg, (21, 21), 0)
+                cameraFeedImg = cv2.divide(grayscaleImage, 255 - blurredImg, scale=256)
+                
             elif fingers2[3] == 1:
                 currentFingerUp = "Ring Finger"
             elif fingers2[4] == 1:
